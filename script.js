@@ -8,12 +8,13 @@ $(document).ready(function(){
         if(fname==''||lname==''||contactNumber=='')
             {
                 alert("Please Fill All Fields");
-                e.preventDefault();
+                // e.preventDefault();
             } 
             else {
-                $("#t1").html(fname)
-                $("#f2").html(lname)
-                $("#f3").html(contactNumber)
+                // $("#t1").html(fname)
+                // $("#t2").html(lname)
+                // $("#t3").html(contactNumber)
+                alert("Form submitted")
                 e.preventDefault();
             }
             // $("#modal").on('hide.bs.modal', function(e){
