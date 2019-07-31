@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form using jquery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <div class=container>
+        <h1>Friends List</h1>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add new friend</button>
+        <div class="modal fade" id="myModal" role="dialog">
+           <div class="modal-content">
+                <div class="modal-dialog">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Add friends</h2>
+                    <form class="modal-body" id="target" name="myForm" >
+                        <label for="firstName">
+                            First Name:
+                            <input type="text" id="firstName" value="" name="firstName" required />
+                        </label>
+                        <label for="lastName">
+                            Last Name:
+                            <input type="text" id="lastName" value="" name="lastName" required/>
+                        </label>
+                        <label for="contact">
+                            Contact Number:
+                            <input type="tel" id="contact" value="" name="contact" />
+                        </label>
+                        <label for="gender">
+                            Gender :
+                            <select name="gender" id="gender" required>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </label>
+                        <input type="submit" value="Submit" class="btn btn-primary" id="submitBtn" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="tblcls">
+            <tr>
+                <th>First Name</th>
+                <th>last Name</th>
+                <th>Contact Number</th>
+                <th>Gender</th>
+            </tr>
+            <tr>
+                <td id="t1">Jayshree</td>
+                <td id="t2">Sonawane</td>
+                <td id="t3">8369550018</td>
+                <td id="t4">Female</td>
+            </tr>
+        </table>
+        
+    </div>
+    <script src="script.js"></script>     
+    </body>
+</html>
