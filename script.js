@@ -23,7 +23,7 @@
 
 $(document).ready(function(){
     $("#add").click(function(){
-        $("form").show()
+        $("form").toggle()
     })
     $("#submit").on("click", function(e) {
         var fname = $("#firstName").val();
@@ -38,10 +38,23 @@ $(document).ready(function(){
             else {
                 var st = "";
                 $("#myForm input[type=text],input[type=tel],select").each(function(){
-                st = st+ '<td>'+$(this).val()+'</td>' ;
+                st = st+ '<td>'+$(this).val()+'</td>';
                 $(this).val('');
             })
             $('#details').append('<tr>'+st+'</tr>').append('<button>'+ 'Edit' + '</button>');
+            $("#details button").attr("id" , "edit").click(function() {
+                $(this).parent().siblings("#myForm").show()
+                   // function() {
+                    var rowData = $("#details tr").children('td').map(function(){
+                        return $(this).text()
+                    }).get()
+                    $("#firstName").val(rowData[0])
+                    $("#lastName").val(rowData[1])
+                    $("#contact").val(rowData[2])
+                    $("#gender").val(rowData[3])
+                //})
+            })
+            $("form").hide();
         }
     })
 })
