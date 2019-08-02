@@ -41,8 +41,8 @@ $(document).ready(function(){
                 st = st+ '<td>'+$(this).val()+'</td>';
                 $(this).val('');
             })
-            $('#details').append('<tr>'+st+'</tr>').append('<button>'+ 'Edit' + '</button>');
-            $("#details button").attr("id" , "edit").click(function() {
+            $('#details').append('<tr>'+st+'</tr>').append('<button>Edit</button><button id="delete">Delete</button>');
+            $("#details button:first").attr("id" , "edit").click(function() {
                 $(this).parent().siblings("#myForm").show()
                    // function() {
                     var rowData = $("#details tr").children('td').map(function(){
@@ -55,8 +55,10 @@ $(document).ready(function(){
                 //})
             })
             $("form").hide();
+            $("#details #delete").click(function(){
+                $(this).closest("tr").remove()
+                $("#details button").remove()
+            })
         }
     })
 })
-
-
