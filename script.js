@@ -23,7 +23,7 @@
 
 $(document).ready(function(){
     $("#add").click(function(){
-        $("form").toggle()
+        $("form").show()
     })
     $("#submit").on("click", function(e) {
         var fname = $("#firstName").val();
@@ -39,12 +39,12 @@ $(document).ready(function(){
                 var st = "";
                 $("#myForm input[type=text],input[type=tel],select").each(function(){
                 st = st+ '<td>'+$(this).val()+'</td>';
+                et = '<td><button id="edit">'+ 'Edit' + '</button ><button id ="delete">'+ 'Delete' + '</button></td>'
                 $(this).val('');
             })
-            $('#details').append('<tr>'+st+'</tr>').append('<button>Edit</button><button id="delete">Delete</button>');
-            $("#details button:first").attr("id" , "edit").click(function() {
-                $(this).parent().siblings("#myForm").show()
-                   // function() {
+            $('#details').append('<tr>'+ st +  et + '</tr>');
+            $("#details tr td #edit").bind("click",function() {
+                $(this).parents().siblings("#myForm").show()
                     var rowData = $("#details tr").children('td').map(function(){
                         return $(this).text()
                     }).get()
@@ -52,12 +52,15 @@ $(document).ready(function(){
                     $("#lastName").val(rowData[1])
                     $("#contact").val(rowData[2])
                     $("#gender").val(rowData[3])
-                //})
+                    
+                    $('#submit').click(function(){
+                       // $(this).closest('form').find("input[type=text],input[type=tel],select").val("");
+                    })
+                    e.preventDefault();
             })
-            $("form").hide();
+            //$("form").hide();
             $("#details #delete").click(function(){
                 $(this).closest("tr").remove()
-                $("#details button").remove()
             })
         }
     })
